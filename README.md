@@ -18,17 +18,17 @@ Do these with metrics and logs. Has to be open source, obviously.
 
 1. Agent-based. The agent can have HTTP server so that `/metrics` still works.
 
-2. Store everything locally.
+2. Store everything locally. Average Kubernetes pods have a lot of storage that sits idle. This is wasteful, what if we use some for storing metrics?
 
-3. Detects everything locally.
+3. Detects everything locally. If each agent can detect a problem, then it can initiate a longer-term data retention policy automatically. And when the problem is solved, it can switch back to much shorter data retention policy. That means: You pay storage cost only when it matters!
 
-4. Scatter-gather metrics result from a central location, only when you need to.
+4. Scatter-gather metrics result from a central location, only when you need to. This mechanism is needed because data lives on the agent.
 
 5. Push as much query as possible to the agent. Think database's predicate pushdown.
 
 6. Only very few features come from central location, e.g. ping service & global alert evaluator.
 
-7. Real SQL to query. Perhaps SQLite?
+7. Use a real SQL to query data. Perhaps SQLite?
 
 8. No nested table. Just a simple and flat SQL table as data format. Which means, data is convertable to CSV.
 
@@ -38,7 +38,7 @@ Do these with metrics and logs. Has to be open source, obviously.
 
 11. `echo "a.b.c 100 <timestamp> key=value" | nc localhost <port>` must works.
 
-12. `/metrics` must have a legit content-type. Maybe YAML?
+12. `/metrics` must have a legit content-type. Maybe YAML? Parsing this should not require a custom library.
 
 13. The only dependency needed should be Nats.
 
