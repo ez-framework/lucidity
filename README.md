@@ -14,9 +14,9 @@ This is not right. Observability users should not be punished the more they use 
 
 ## Design Principles
 
-Do these with metrics and logs.
+Do these with metrics and logs. Has to be open source, obviously.
 
-1. Agent-based, obviously. The agent can have HTTP server so that `/metrics` still works.
+1. Agent-based. The agent can have HTTP server so that `/metrics` still works.
 
 2. Store everything locally.
 
