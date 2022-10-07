@@ -44,6 +44,12 @@ Do these with metrics and logs. Has to be open source, obviously.
 
 14. Doesn't need it's own UI. Everything must be fetchable using SQL. Which means Grafana should just work.
 
-15. Eventually, the global alert evaluator will integrates with PagerDuty.
+15. When the machine is gone, do we lose the data there? Yes! How many times do you look at 1 year old infra metrics data? Data should be stored long term only if it's eventful (e.g. an outage).
 
-16. Eventually, it will integrates with all machine learning libraries in Python because data is CSV/SQL format friendly.
+16. Eventually, the global alert evaluator will integrates with PagerDuty.
+
+17. Eventually, it will integrates with all machine learning libraries in Python because data is CSV/SQL format friendly.
+
+## Prior Art
+
+* People still love tailing logs directly. [Stern](https://github.com/wercker/stern) is widely popular even though the company have Splunk. For immediate debugging, being close to the pods helps a lot. A central system like Splunk is weighed down by their own data.
