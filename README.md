@@ -74,7 +74,7 @@ Do these with metrics and logs. Has to be open source, obviously.
 
 17. Eventually, it will integrates with all machine learning libraries in Python because data is CSV/SQL format friendly.
 
-18. Don't try to solve distributed tracing for now because I couldn't come up with an architecture that requires a central storage.
+18. Don't try to solve distributed tracing for now because I couldn't come up with an architecture that doesn't require a central storage.
 
 ## Supporting Examples
 
