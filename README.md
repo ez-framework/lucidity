@@ -91,3 +91,8 @@ Do these with metrics and logs. Has to be open source, obviously.
 * Popular metrics SaaS like NR or DD are frequently impacted by the sheer weight of their own data. Not to mention they are extremely expensive when you have a lot of data. Do you really need to pay that much for 0.5% data you looked at?
 
 * Embedded databases are rising in popularity, maybe they are now ready to handle analytical volume.
+
+
+## Random Notes
+
+1. If we can push the memory consumption real small, I think this can be a generic IoT platform. However I am pessimistic about being able to cut the RAM consumption down while still being performant.

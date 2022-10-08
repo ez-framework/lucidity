@@ -28,3 +28,9 @@ Secure Websocket(wss://). Why? We can easily secure the agent's connection on bo
 
 6. Return results to the client as HTTP response.
 
+## Frontend facing
+
+HTTP is preferable because it is stateless and proxy friendly.
+
+We may have to craft a special endpoint to play well with Grafana.
+
