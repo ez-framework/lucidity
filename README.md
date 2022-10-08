@@ -24,6 +24,8 @@ Do these with metrics and logs. Has to be open source, obviously.
 
     * `sqlite-zstd` extension can shrink the disk consumption by a lot. https://hackaday.com/2022/08/01/never-too-rich-or-thin-compress-sqlite-80/
 
+    * Can DuckDB be compressed?
+
 3. Detects everything locally. If each agent can detect a problem, then it can initiate a longer-term data retention policy automatically. And when the problem is solved, it can switch back to much shorter data retention policy. That means: You pay storage cost only when it matters!
 
 4. Scatter-gather metrics result from a central location, only when you need to. This mechanism is needed because data lives on the agent.
@@ -38,7 +40,11 @@ Do these with metrics and logs. Has to be open source, obviously.
 
     * The only dependency needed should be Nats.
 
-7. Use a real SQL to query data. Perhaps SQLite?
+7. Use a real SQL to query data.
+
+    * SQLite is top contender.
+
+    * DuckDB is columnar, thus very attractive for analytical data. It uses PG syntax.
 
 8. No nested table. Just a simple and flat SQL table as data format. Which means, data is convertable to CSV.
 
@@ -55,6 +61,8 @@ Do these with metrics and logs. Has to be open source, obviously.
     * Question: What if it's better if the format is an event: `{"time": timestamp, "column_a": 12, "column_b": 9001}`?
 
         * If this is chosen, stick with numeric types for now. String type requires fancy indexing like bitmap or full text inverted index.
+
+        * DuckDB is excellent for columnar analytics.
 
 12. Auto aggregation, this is 1 of Druid's shining feature. Data is automatically aggregated per specification, e.g. hourly or daily or monthly.
 
@@ -81,3 +89,5 @@ Do these with metrics and logs. Has to be open source, obviously.
 * People still love tailing logs directly. [Stern](https://github.com/wercker/stern) is widely popular even though the company have Splunk. For immediate debugging, being close to the pods helps a lot. A central system like Splunk is weighed down by their own data.
 
 * Popular metrics SaaS like NR or DD are frequently impacted by the sheer weight of their own data. Not to mention they are extremely expensive when you have a lot of data. Do you really need to pay that much for 0.5% data you looked at?
+
+* Embedded databases are rising in popularity, maybe they are now ready to handle analytical volume.
