@@ -96,3 +96,6 @@ Do these with metrics and logs. Has to be open source, obviously.
 ## Random Notes
 
 1. If we can push the memory consumption real small, I think this can be a generic IoT platform. However I am pessimistic about being able to cut the RAM consumption down while still being performant.
+
+2. Hm... Then why not just pipe event data into ClickHouse/Druid? That's what SigNoz is doing. Is there a large value behind having data locally sharded? It seems too hyper specific to IoT.
+
